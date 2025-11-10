@@ -1,6 +1,6 @@
 import java.util.Arrays;
 /**
- * ArrayMethods is a collection of methods for arrays, including counting, sums, averages, maximum value & maximum value location.
+ * ArrayMethods is a collection of methods for arrays, including counting, sums, averages, maximum value and maximum value location.
  *
  * @author Jacob Antonio
  * @version 1.0
@@ -75,8 +75,7 @@ public class ArrayMethods
     prints an int array, nicely formatted
     @param inArray int array to print
     */
-    public void print(int[ ] inArray)
-    {
+    public void print(int[ ] inArray) {
         System.out.print("{");
         int i;
         // print elements before the last, separated by commas
@@ -86,5 +85,73 @@ public class ArrayMethods
         if (inArray.length > 0)
         System.out.print(inArray[i]);
         System.out.println("}");
+    }
+    /**
+     * searches for the rightmost instance of value and records its index
+     * @param key the value being searched for
+     * @return keyIndex index of last instance key. defaults to -1 if key is not found. 
+     */
+    public int findLast(int key) {
+    int keyIndex = -1;
+        for (int i = myArray.length - 1; i >= 0; i--) {
+        if (myArray[i] == key) {
+            keyIndex = i;
+            break;
+        }
+    }
+    return keyIndex;
+    }
+    /**
+     * Creates an array listing the indexes of all occurences of a value, key
+     * @param key value being searched for
+     * @return allIndexes array of all indexes of key
+     */
+    public int[] findAll(int key) {
+        int count = 0;
+        for (int i = 0; i < myArray.length; i++) {
+            if (myArray[i] == key) {
+                count++;
+            }
+        }
+        int[] allIndexes= new int[count];
+        int index = 0;
+        for (int i = 0; i < myArray.length; i++) {
+            if (myArray[i] == key) {
+            allIndexes[index] = i;
+            index++;
+        }
+        }
+        return allIndexes;
+    }
+    /**
+     * simple getter for int[] myArray
+     * @return the integer getArray
+     */
+    public int[] getArray() {
+        return myArray;
+    }
+    /**
+    * Creates and returns a copy of myArray.
+    * @return a new array that is a copy of the internal array
+    */
+    public int[] copyArray() {
+        return Arrays.copyOf(myArray, myArray.length);
+    }
+    /**
+     * replaces inArray with an array with values in reverse order to inArray
+     * @param inArray the array to be reversed
+     * @return inArray with values reversed
+     */
+    public int[] reverseArray(int[] inArray) {
+    int left = 0;
+    int right = inArray.length - 1;
+    while (left < right) {
+        int temp = inArray[left];
+        inArray[left] = inArray[right];
+        inArray[right] = temp;
+        left++;
+        right--;
+    }
+    return inArray;
     }
 }
