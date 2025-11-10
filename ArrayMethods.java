@@ -1,10 +1,9 @@
 import java.util.Arrays;
 /**
- * ArrayMethods is a collection of methods for arrays, including counting, sums, averages, maximum value and maximum value location.
- *
+ * ArrayMethods is a collection of methods for arrays
  * @author Jacob Antonio
- * @version 1.0
- * @since 11/2/2025
+ * @version 1.1
+ * @since 11/9/2025
  */
 public class ArrayMethods
 {
